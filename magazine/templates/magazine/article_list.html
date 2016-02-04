@@ -1,0 +1,35 @@
+{% extends 'magazine/base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class='page-header' style='margin-bottom:40px;'>
+                    <h1>Welcome to Modern Magazine</h1>
+                    <a href="{% url 'magazine:article_new' %}" class='btn btn-primary' style="float:right"> New Article </a>
+                </div>
+            </div>
+
+            {% for article in article_list %}
+
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a href="{% url 'magazine:article_detail' article.pk %}"><h4><i class="fa fa-fw fa-check"></i>{{article.title}}</h4></a>
+                    </div>
+                    {% comment %}
+                    <div class="panel-body">
+                        <p>{{article.content}}</p>
+                        <a href="#" class="btn btn-default">Learn More</a>
+                    </div>
+                    {% endcomment %}
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+
+{% endblock content %}
