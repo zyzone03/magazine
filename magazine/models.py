@@ -10,3 +10,11 @@ class Article(models.Model):
 
 	def __str__(self):
 		return self.title
+
+
+class Comment(models.Model):
+	article = models.ForeignKey(Article)
+	message = models.CharField(max_length=100)
+
+	def __str__(self):
+		return self.message
