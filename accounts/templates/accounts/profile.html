@@ -1,0 +1,11 @@
+{% extends 'magazine/base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+    {{user}}의 프로필 페이지입니다
+{% else %}
+    로그인을 해주세요
+{% endif %}
+
+{% endblock content %}

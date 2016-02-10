@@ -15,7 +15,13 @@
                         <h4><i class="fa fa-fw fa-check"></i>{{article.title}}</h4>
                     </div>
                     <div class="panel-body">
-                        <p>{{article.content}}</p>
+                        <p>내용 : {{article.content}}</p>
+                        <p>번호 : {{article.phone}}</p>
+
+                        {% if article.photo %}
+                            <img src="{{article.photo.url}}">
+                        {% endif %}
+
                         <a href="{% url 'magazine:article_list' %}" class='btn btn-default'> 목록으로 </a>
                         <a href="{% url 'magazine:article_edit' article.pk %}" class='btn btn-default'> EDIT </a>
                         <a href="{% url 'magazine:article_delete' article.pk %}" class='btn btn-default'> DELETE </a>
