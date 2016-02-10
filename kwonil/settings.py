@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'magazine',
     'accounts',
+    'bootstrap3',
 ]
 
 MIDDLEWARE_CLASSES = [

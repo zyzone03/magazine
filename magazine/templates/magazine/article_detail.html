@@ -19,8 +19,23 @@
                         <a href="{% url 'magazine:article_list' %}" class='btn btn-default'> 목록으로 </a>
                         <a href="{% url 'magazine:article_edit' article.pk %}" class='btn btn-default'> EDIT </a>
                         <a href="{% url 'magazine:article_delete' article.pk %}" class='btn btn-default'> DELETE </a>
+                        <a href="{% url 'magazine:comment_new' article.pk %}" class='btn btn-default'> 댓글 </a>
+                    </div>
+                    <div class='panel-body'>
+                        <h5> 댓글목록 </h5>
+                        <ul>
+                            {% for comment in article.comment_set.all %}
+                                <li>{{comment.message}}
+                                <a href="{% url 'magazine:comment_edit' article.pk comment.pk %}"> EDIT </a>
+                                <a href="{% url 'magazine:comment_delete' article.pk comment.pk %}"> DEL </a>
+                                </li>
+                            {% empty %}
+                                <li> 등록된 댓글이 없습니다. </li>
+                            {% endfor %}
+                        </ul>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
 
